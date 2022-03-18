@@ -1,0 +1,4 @@
+/vendor/
+/apps/backend/var/cache/*
+/apps/backend/var/log/*
+.idea
