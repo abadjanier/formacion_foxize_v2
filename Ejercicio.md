@@ -16,3 +16,14 @@ Los trabajos en los que ha estado este usuario, un id, un nombre para el lugar d
 y una fecha de fin (también podemos seguir trabajando actualmente en ese sitio) y por último una descripción.
 
 **Todo esto no se debe de guardar en base de datos de momento, lo haremos más adelante.**
+
+# Iniciar el servidor de Symfony
+
+Para que sea más fácil el desarrollo, como de momento no necesitamos base de datos,
+es más cómodo iniciar el servidor de symfony, para ellos deberéis ejecutar en **apps/backend** por terminal:
+
+**symfony server:start --port=8000**
+
+Para ello deberéis tener el ejecutable de symfony instalado en vuestro PC.
+
+[https://symfony.com/download#step-1-install-symfony-cli](https://symfony.com/download#step-1-install-symfony-cli)
