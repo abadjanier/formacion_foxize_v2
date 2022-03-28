@@ -6,13 +6,13 @@ Para realizar la creación de los objetos utilizaremos un named constructor llam
 
 El ejercicio consiste en: 
 
-Un usuario puede tener un CV o más, estos CV's tienen un nombre y fecha de creación solamente, este usuario debe de tener un id, email, nombre y apellidos.
+Un usuario puede tener un CV o más, estos CV's tienen un nombre y fecha de creación solamente, este usuario debe de tener un id, email, nombre y apellidos y empresa.
 
 El CV como tal tendrá un listado de skills y trabajos.
 
 Las skills tendrán un id, nombre y una puntuación.
 
-Los trabajos en los que ha estado este usuario, un id, un nombre para el lugar de trabajo, la posición, una fecha de inicio 
+Las empresas en las que ha estado este usuario, un id, un nombre para el lugar de trabajo, la posición, una fecha de inicio 
 y una fecha de fin (también podemos seguir trabajando actualmente en ese sitio) y por último una descripción.
 
 Por ahora solo pido un caso de uso para crear un CV. Si queréis hacer el de usuario, perfecto.
