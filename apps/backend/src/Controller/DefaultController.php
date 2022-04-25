@@ -11,6 +11,7 @@ use App\Backoffice\Users\Domain\UserRepository;
 use App\Backoffice\Users\Domain\UserUsername;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
@@ -24,16 +25,14 @@ class DefaultController extends AbstractController
     public function __invoke(Request $request, UserRepository $userRepository, $id)
     {
 
-        dd($userRepository->byId((int) $id));
+        dump($userRepository->byId((int) $id));
 
         $user = new User();
         $user->setName(new UserName('Abad'))
             ->setEmail(new UserEmail('abad@foxize.com'))
             ->setSurname(new UserUsername('Rodríguez'));
 
-        $entityManager->persist($user);
-        $entityManager->flush();
-        dd($user);
+        return new Response("<html><head></head><body></body></html>");
         // TODO: Implement __invoke() method.
     }
 
