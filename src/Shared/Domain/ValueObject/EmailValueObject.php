@@ -27,6 +27,6 @@ abstract class EmailValueObject
     private function ensureValidEmail(string $value):void
     {
         if (!filter_var($value, FILTER_VALIDATE_EMAIL))
-            throw new EmailNotValidException();
+            throw new EmailNotValidException(sprintf('Email <%s> is not valid.',$value));
     }
 }
