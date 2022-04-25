@@ -18,7 +18,7 @@ final class AppEntityManagerFactory
             DoctrinePrefixesSearcher::inPath(__DIR__ . '/../../../Backoffice', 'App\Backoffice')
         );
 
-        $dbalCustomTypesClasses = [];
+        $dbalCustomTypesClasses = DbalTypesSearcher::inPath(__DIR__ . '/../../../Backoffice', 'Backoffice');
 
         return DoctrineEntityManagerFactory::create(
             $parameters,

@@ -8,8 +8,8 @@
         <id name="id" type="integer" column="id" length="36" >
             <generator strategy="AUTO"/>
         </id>
+        <field name="email" type="user_email" column="user_email"/>
         <embedded name="name" class="App\Backoffice\Users\Domain\UserName" use-column-prefix="false" />
-        <embedded name="email" class="App\Backoffice\Users\Domain\UserEmail" use-column-prefix="false" />
         <embedded name="surname" class="App\Backoffice\Users\Domain\UserUsername" use-column-prefix="false" />
 
 

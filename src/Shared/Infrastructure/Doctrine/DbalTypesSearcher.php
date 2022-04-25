@@ -3,6 +3,7 @@
 
 namespace App\Shared\Infrastructure\Doctrine;
 
+use App\Shared\Domain\Utils;
 use function Lambdish\Phunctional\filter;
 use function Lambdish\Phunctional\map;
 use function Lambdish\Phunctional\reduce;
@@ -49,7 +50,10 @@ final class DbalTypesSearcher
         return static function (array $totalNamespaces, string $path) use ($contextName) {
             $possibleFiles = scandir($path);
             $files         = filter(
-                static fn($file) => Utils::endsWith('Type.php', $file),
+                static function ($file)
+                {
+                    return Utils::endsWith('Type.php', $file) ;
+                },
                 $possibleFiles
             );
 
@@ -60,7 +64,7 @@ final class DbalTypesSearcher
 
                     $classWithoutPrefix = str_replace(['.php', '/'], ['', '\\'], $splittedPath[1]);
 
-                    return "RotateApp\\$contextName\\$classWithoutPrefix";
+                    return "App\\$contextName\\$classWithoutPrefix";
                 },
                 $files
             );
