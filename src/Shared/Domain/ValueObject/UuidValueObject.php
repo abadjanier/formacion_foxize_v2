@@ -13,8 +13,8 @@ class UuidValueObject
 
     public function __construct(string $value)
     {
-        $this->value = $value;
         $this->ensureIsValidUuid($value);
+        $this->value = $value;
     }
 
     public static function random(): self
