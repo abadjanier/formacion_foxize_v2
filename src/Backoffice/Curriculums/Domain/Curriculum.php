@@ -39,7 +39,7 @@ class Curriculum
      */
     private $creation_date;
 
-    private function __construct(?CurriculumUuid $uuid = null)
+    public function __construct(?CurriculumUuid $uuid = null)
     {
         $this->uuid = $uuid??CurriculumUuid::random();
         $this->creation_date = new DateTime();
@@ -90,9 +90,10 @@ class Curriculum
     /**
      * @param CurriculumName $name
      */
-    public function setName(CurriculumName $name): void
+    public function setName(CurriculumName $name): Curriculum
     {
         $this->name = $name;
+        return $this;
     }
 
     /**

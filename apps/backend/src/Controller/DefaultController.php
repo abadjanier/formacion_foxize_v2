@@ -5,11 +5,14 @@ namespace App\Backend\Controller;
 
 
 use App\Backoffice\Curriculums\Domain\Curriculum;
+use App\Backoffice\Curriculums\Domain\CurriculumName;
+use App\Backoffice\Curriculums\Domain\CurriculumUuid;
 use App\Backoffice\Users\Domain\User;
 use App\Backoffice\Users\Domain\UserEmail;
 use App\Backoffice\Users\Domain\UserName;
 use App\Backoffice\Users\Domain\UserRepository;
 use App\Backoffice\Users\Domain\UserUsername;
+use App\Shared\Domain\ValueObject\UuidValueObject;
 use App\Shared\Infrastructure\Doctrine\MysqlSchemaSQL;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -32,21 +35,14 @@ class DefaultController extends AbstractController
     {
 
         /**
-         * @var Curriculum
+         * @var  User $user
          */
-        $cv = $entityManager->getRepository(Curriculum::class)->find(1);
+        $user = $userRepository->byId(1);
 
-        dump($cv->getUuid());
+        $user->addCV((new Curriculum(new CurriculumUuid(UuidValueObject::random())))->setName(new CurriculumName("Nuevo nombre de usuario {$user->getName()->value()}")));
 
-        dd($cv);
-        dd($mysqlSchemaSQL());
-        dump($userRepository->byId((int) $id));
-
-        $user = new User();
-        $user->setName(new UserName('Abad'))
-            ->setEmail(new UserEmail('abad@foxize.com'))
-            ->setSurname(new UserUsername('Rodríguez'));
-
+        $userRepository->save($user);
+        dd($user);
         return new Response("<html><head></head><body></body></html>");
         // TODO: Implement __invoke() method.
     }

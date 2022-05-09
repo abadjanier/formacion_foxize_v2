@@ -5,13 +5,14 @@ namespace App\Backoffice\Users\Infrastructure\Persistence\Doctrine;
 
 
 use App\Backoffice\Users\Domain\UserEmail;
+use App\Backoffice\Users\Domain\UserName;
 use App\Shared\Domain\Utils;
 use App\Shared\Infrastructure\Doctrine\DoctrineCustomType;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
 use function Lambdish\Phunctional\last;
 
-class UserEmailType extends StringType implements DoctrineCustomType
+class UserNameType extends StringType implements DoctrineCustomType
 {
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
@@ -22,7 +23,7 @@ class UserEmailType extends StringType implements DoctrineCustomType
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         $PHPValue = parent::convertToPHPValue($value, $platform);
-        return new UserEmail($PHPValue);
+        return new UserName($PHPValue);
     }
 
     public function getName()

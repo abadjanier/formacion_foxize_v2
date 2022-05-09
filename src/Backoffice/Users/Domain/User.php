@@ -20,7 +20,7 @@ class User
     private $name;
 
     /**
-     * @var UserUsername
+     * @var UserSurname
      */
     private $surname;
 
@@ -71,18 +71,18 @@ class User
     }
 
     /**
-     * @return UserUsername
+     * @return UserSurname
      */
-    public function getSurname(): UserUsername
+    public function getSurname(): UserSurname
     {
         return $this->surname;
     }
 
     /**
-     * @param UserUsername $surname
+     * @param UserSurname $surname
      * @return User
      */
-    public function setSurname(UserUsername $surname): User
+    public function setSurname(UserSurname $surname): User
     {
         $this->surname = $surname;
         return $this;
@@ -130,6 +130,7 @@ class User
      */
     public function addCV(Curriculum $cv): User
     {
+        $cv->setUser($this);
         $this->setCurriculums($cv);
         return $this;
     }

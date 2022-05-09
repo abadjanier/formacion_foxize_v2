@@ -9,9 +9,13 @@
             <generator strategy="AUTO"/>
         </id>
         <field name="email" type="user_email" column="user_email"/>
-        <embedded name="name" class="App\Backoffice\Users\Domain\UserName" use-column-prefix="false" />
-        <embedded name="surname" class="App\Backoffice\Users\Domain\UserUsername" use-column-prefix="false" />
-
-
+        <field name="name" type="user_name" column="user_name"/>
+        <field name="surname" type="user_surname" column="user_surname"/>
+        <one-to-many field="curriculums" target-entity="App\Backoffice\Curriculums\Domain\Curriculum" mapped-by="user" >
+        <cascade>
+            <cascade-all>
+            </cascade-all>
+        </cascade>
+        </one-to-many>
     </entity>
 </doctrine-mapping>

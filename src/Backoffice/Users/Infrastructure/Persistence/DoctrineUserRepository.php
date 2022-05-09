@@ -30,4 +30,12 @@ class DoctrineUserRepository implements UserRepository
     {
         return $this->em->getRepository(User::class)->find($id);
     }
+
+    public function save(User $user): void
+    {
+        $this->em->persist($user);
+        $this->em->flush();
+    }
+
+
 }
